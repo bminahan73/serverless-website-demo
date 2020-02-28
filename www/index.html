@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hello Serverless Demo</title>
+	<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,900" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1 id="greeting" class="display-4">Hello, world!</h1>
+    <form>
+      <input class="form-control form-control-lg" type="text" id="name" name="name" placeholder="enter your name..."><br>
+      <input type="submit" class="btn btn-primary btn-lg" value="Submit">
+    </form>
+    <hr class="my-4">
+    <p class="lead">This is a simple hello example by Ben Minahan</p>
+  </div>
+</body>
+<script>
+  var urlParams = new URLSearchParams(window.location.search);
+  var greetingText = 'Hello';
+  if (urlParams.has('name')) {
+    greetingText += (', ' + urlParams.get('name') + '!')
+  }
+  else {
+    greetingText += '!'
+  }
+  document.getElementById('greeting').innerText = greetingText;
+</script>
+</html>
