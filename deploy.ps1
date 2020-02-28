@@ -1,11 +1,11 @@
 Param ( $StackName = 'hello-serverless-demo' )
 $Stack = Get-CFNStack -StackName $StackName
 If ($Stack) {
-  Write-Host (" creating stack $StackName...")
+  Write-Host ("updating stack $StackName...")
   $Stack = Update-CFNStack -StackName $StackName -Capability CAPABILITY_NAMED_IAM -TemplateBody (Get-Content -Raw 'serverless-website.yml')
 }
 Else {
-  Write-Host (" updating stack $StackName...")
+  Write-Host ("creating stack $StackName...")
   $Stack = New-CFNStack -StackName $StackName -Capability CAPABILITY_NAMED_IAM -TemplateBody (Get-Content -Raw 'serverless-website.yml')
 }
 While (($Stack.StackStatus -Ne 'CREATE_COMPLETE') -And ($Stack.StackStatus -Ne 'UPDATE_COMPLETE')) {
